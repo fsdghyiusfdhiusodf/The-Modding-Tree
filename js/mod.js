@@ -1,28 +1,28 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "The Baby Tree",
 	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	author: "Juls and Pro",
+	pointsName: "sperm",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	initialStartPoints: new Decimal (1), // Used for hard resets and new players
+	offlineLimit: 69420,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "My name is Walter Hartwell White.",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v0.1</h3><br>
+		- Added babies.<br>
+		- Added more things?.`
 
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `Congratulations! You have overpopulated the earth`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -43,6 +43,16 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+
+  // adders
+  if (hasAchievement('a', 11)) { gain= gain.add(1)}
+
+  // multipliers
+  if (hasUpgrade('b', 11)) { gain = gain.mul(3) }
+  if (hasUpgrade('b', 12)) { gain = gain.mul(player.points.add(1).slog(10).pow(4).add(1))}
+  if (hasUpgrade('b', 13)) { gain = gain.mul(Decimal.pow(2, player['b'].points.add(4).pow(1/3))) }
+
+
 	return gain
 }
 
