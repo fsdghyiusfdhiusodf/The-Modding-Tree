@@ -45,13 +45,23 @@ function getPointGen() {
 	let gain = new Decimal(1)
 
   // adders
-  if (hasAchievement('a', 11)) { gain= gain.add(1)}
+  if (hasAchievement('a', 11)) { gain= gain.add(1) }
 
   // multipliers
   if (hasUpgrade('b', 11)) { gain = gain.mul(3) }
-  if (hasUpgrade('b', 12)) { gain = gain.mul(player.points.add(1).slog(10).pow(4).add(1))}
-  if (hasUpgrade('b', 13)) { gain = gain.mul(Decimal.pow(2, player['b'].points.add(4).pow(1/3))) }
+  if (hasUpgrade('b', 12)) { 
+    if (hasUpgrade('c', 14)) {
+      gain = gain.mul(player.points.add(1).log(5).pow(3).add(1))
+    } else {
+      gain = gain.mul(player.points.add(1).slog(5).pow(4.75).add(1))
+    }
+  }
+  if (hasUpgrade('b', 13)) { gain = gain.mul(Decimal.pow(2, player['b'].points.add(4).pow(1/2.5))) }
 
+  if (hasUpgrade('c', 11)) { gain = gain.pow(1.8) }
+  if (hasUpgrade('c', 12)) { gain = gain.mul(player.c.points.add(2).pow(1.5)) }
+
+  
 
 	return gain
 }
