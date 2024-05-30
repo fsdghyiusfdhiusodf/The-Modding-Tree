@@ -117,7 +117,7 @@ You can make almost any value dynamic by using a function in its place, includin
 
 - onPrestige(gain): **optional**. A function that triggers when this layer prestiges, just before you gain the currency.  Can be used to have secondary resource gain on prestige, or to recalculate things or whatnot.
 
-- resetDescription: **optional**. Use this to replace "Reset for " on the Prestige button with something else.
+- resetDescription: **optional**. Use this to replace "Reset voor " on the Prestige button with something else.
 
 - prestigeButtonText(): **sometimes required**. Use this to make the entirety of the text a Prestige button contains. Only required for custom layers, but usable by all types.
 

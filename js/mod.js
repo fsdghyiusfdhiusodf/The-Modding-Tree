@@ -1,8 +1,8 @@
 let modInfo = {
 	name: "The Baby Tree",
-	id: "mymod",
-	author: "Juls and Pro",
-	pointsName: "sperm",
+	id: "Babies",
+	author: "Professional gamedev man",
+	pointsName: "Sperma",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -19,10 +19,10 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.1</h3><br>
-		- Added babies.<br>
+		- Added Babies.<br>
 		- Added more things?.`
 
-let winText = `Congratulations! You have overpopulated the earth`
+let winText = `Gefeliciteerd! Het universum implodeert door het gewicht en inhoud van een googol sperma`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -45,24 +45,20 @@ function getPointGen() {
 	let gain = new Decimal(1)
 
   // adders
-  if (hasAchievement('a', 11)) { gain= gain.add(1) }
+  if (hasAchievement('a', 11)) { gain = gain.add(1) }
 
   // multipliers
   if (hasUpgrade('b', 11)) { gain = gain.mul(3) }
   if (hasUpgrade('b', 12)) { 
-    if (hasUpgrade('c', 14)) {
-      gain = gain.mul(player.points.add(1).log(5).pow(3).add(1))
-    } else {
-      gain = gain.mul(player.points.add(1).slog(5).pow(4.75).add(1))
-    }
+    gain = gain.mul(player.points.add(1).slog(5).pow(4.75).add(1))
+
   }
   if (hasUpgrade('b', 13)) { gain = gain.mul(Decimal.pow(2, player['b'].points.add(4).pow(1/2.5))) }
 
-  if (hasUpgrade('c', 11)) { gain = gain.pow(1.8) }
-  if (hasUpgrade('c', 12)) { gain = gain.mul(player.c.points.add(2).pow(1.5)) }
+  gain = gain.mul(Decimal.pow(10, getBuyableAmount('m', 12)))
 
-  
-
+  if (hasUpgrade('b', 23)) { gain = gain.pow(3) }
+ 
 	return gain
 }
 
@@ -76,7 +72,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.points.gte(new Decimal("1e100"))
 }
 
 

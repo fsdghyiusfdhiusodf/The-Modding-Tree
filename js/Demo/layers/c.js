@@ -215,7 +215,7 @@ addLayer("c", {
         }, // Useful for if you gain secondary resources or have other interesting things happen to this layer when you reset it. You gain the currency after this function ends.
 
         hotkeys: [
-            {key: "c", description: "C: reset for lollipops or whatever", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+            {key: "c", description: "C: Reset voor lollipops or whatever", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
             {key: "ctrl+c", description: "Ctrl+c: respec things", onPress(){respecBuyables(this.layer)}, unlocked() {return hasUpgrade('c', '22')}}  ,
         ],
         increaseUnlockOrder: [], // Array of layer names to have their order increased when this one is first unlocked
