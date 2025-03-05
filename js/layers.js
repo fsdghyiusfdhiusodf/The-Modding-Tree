@@ -186,7 +186,7 @@ addLayer("a", {
     11: {
       name: "ez",
       done() { return player.b.points.gte(1) },
-      tooltip: "Heb 1 baby. <br> Beloning: +1 sperma/sec",
+      tooltip: "Krijg 1 baby. <br> Beloning: +1 sperma/sec",
       onComplete() { player.a.points =  player.a.points.add(1) },
     },
     12: {
@@ -203,8 +203,8 @@ addLayer("a", {
     },
     14: {
       name: "Da's veel",
-      done() { return player.b.points.gte(100) },
-      tooltip: "Heb 100 babies. <br> Beloning: Je kan babies max-buyen",
+      done() { return player.b.points.gte(10) },
+      tooltip: "Krijg 10 babies. <br> Beloning: Je kan babies max-buyen",
       onComplete() { player.a.points = player.a.points.add(1) },
     },
 
